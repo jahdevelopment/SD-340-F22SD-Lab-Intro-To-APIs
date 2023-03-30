@@ -4,10 +4,8 @@ namespace SD_340_F22SD_Lab_Intro_To_APIs.Models
 {
     public class Route
     {
-        [Key]
         public int Number { get; set; }
 
-        [Required]
         public string Name { get; set; }
 
         public Direction Direction { get; set; }
@@ -16,6 +14,16 @@ namespace SD_340_F22SD_Lab_Intro_To_APIs.Models
 
         public bool BicycleAccessible { get; set; }
 
-        public virtual ICollection<ScheduledStop> ScheduledStop { get; set; } = new List<ScheduledStop>();
+        public virtual List<ScheduledStop> ScheduledStops { get; set; } = new List<ScheduledStop>();
+
+        public Route() { }
+
+        public Route(string name, Direction direction, bool rampAccessible, bool byclicleAccessible) 
+        {
+            Name = name;
+            Direction = direction;
+            RampAccessible = rampAccessible;
+            BicycleAccessible = byclicleAccessible;
+        }
     }
 }
