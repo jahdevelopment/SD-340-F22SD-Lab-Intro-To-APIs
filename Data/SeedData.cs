@@ -13,8 +13,8 @@ namespace SD_340_F22SD_Lab_Intro_To_APIs.Data
             context.Database.EnsureDeleted();
             context.Database.Migrate();
 
-            Route routeOne = new Route("Route 1", Direction.South, true, true);
-            Route routeTwo = new Route("Route 2", Direction.North, false, false);
+            Route routeOne = new Route("Route 1", Direction.North, true, true);
+            Route routeTwo = new Route("Route 2", Direction.South, false, false);
 
             if (!context.Route.Any())
             {
@@ -22,32 +22,44 @@ namespace SD_340_F22SD_Lab_Intro_To_APIs.Data
                 context.Route.Add(routeTwo);
             }
 
-            Stop stopOne = new Stop( "Main St.", "Stop 101", Direction.North);
-            Stop stopTwo = new Stop("Elm St.", "Stop 102", Direction.South);
-            Stop stopThree = new Stop("Oak St.", "Stop 103", Direction.Northeast);
-            Stop stopFour = new Stop("Maple St.", "Stop 104", Direction.Southeast);
-            Stop stopFive = new Stop("Pine St.", "Stop 105", Direction.Southwest);
+            Stop stop105N = new Stop("Main St.", "105", Direction.North);
+            Stop stop205N = new Stop("Elm St.", "205", Direction.North);
+            Stop stop305N = new Stop("Oak St.", "305", Direction.North);
+            Stop stop405N = new Stop("Maple St.", "405", Direction.North);
+            Stop stop505N = new Stop("Pine St.", "505", Direction.North);
+            
+            Stop stop505S = new Stop("Pine St.", "505", Direction.South);
+            Stop stop405S = new Stop("Maple St.", "405", Direction.South);
+            Stop stop305S = new Stop("Oak St.", "305", Direction.South);
+            Stop stop205S = new Stop("Elm St.", "205", Direction.South);
+            Stop stop105S = new Stop("Main St.", "105", Direction.South);
+
 
             if (!context.Stop.Any())
             {
-                context.Stop.Add(stopOne);
-                context.Stop.Add(stopTwo);
-                context.Stop.Add(stopThree);
-                context.Stop.Add(stopFour);
-                context.Stop.Add(stopFive);
+                context.Stop.Add(stop105N);
+                context.Stop.Add(stop205N);
+                context.Stop.Add(stop305N);
+                context.Stop.Add(stop405N);
+                context.Stop.Add(stop505N);
+                context.Stop.Add(stop505S);
+                context.Stop.Add(stop405S);
+                context.Stop.Add(stop305S);
+                context.Stop.Add(stop205S);
+                context.Stop.Add(stop105S);
             }
 
-            ScheduledStop scheduledStopOne = new ScheduledStop(stopOne, routeOne, new DateTime(2023, 3, 27, 9, 0, 0));
-            ScheduledStop scheduledStopTwo = new ScheduledStop(stopTwo, routeOne, new DateTime(2023, 3, 27, 9, 5, 0));
-            ScheduledStop scheduledStopThree = new ScheduledStop(stopThree, routeOne, new DateTime(2023, 3, 27, 9, 10, 0));
-            ScheduledStop scheduledStopFour = new ScheduledStop(stopFour, routeOne, new DateTime(2023, 3, 27, 9, 15, 0));
-            ScheduledStop scheduledStopFive = new ScheduledStop(stopFive, routeOne, new DateTime(2023, 3, 27, 9, 20, 0));
+            ScheduledStop scheduledStopOne = new ScheduledStop(stop105N, routeOne, new DateTime(2023, 3, 27, 9, 0, 0));
+            ScheduledStop scheduledStopTwo = new ScheduledStop(stop205N, routeOne, new DateTime(2023, 3, 27, 9, 5, 0));
+            ScheduledStop scheduledStopThree = new ScheduledStop(stop305N, routeOne, new DateTime(2023, 3, 27, 9, 10, 0));
+            ScheduledStop scheduledStopFour = new ScheduledStop(stop405N, routeOne, new DateTime(2023, 3, 27, 9, 15, 0));
+            ScheduledStop scheduledStopFive = new ScheduledStop(stop505N, routeOne, new DateTime(2023, 3, 27, 9, 20, 0));
 
-            ScheduledStop scheduledStopSix = new ScheduledStop(stopOne, routeTwo, new DateTime(2023, 3, 27, 10, 25, 0));
-            ScheduledStop scheduledStopSeven = new ScheduledStop(stopTwo, routeTwo, new DateTime(2023, 3, 27, 10, 30, 0));
-            ScheduledStop scheduledStopEight = new ScheduledStop(stopThree, routeTwo, new DateTime(2023, 3, 27, 10, 35, 0));
-            ScheduledStop scheduledStopNine = new ScheduledStop(stopFour, routeTwo, new DateTime(2023, 3, 27, 10, 40, 0));
-            ScheduledStop scheduledStopTen = new ScheduledStop(stopFive, routeTwo, new DateTime(2023, 3, 27, 10, 45, 0));
+            ScheduledStop scheduledStopSix = new ScheduledStop(stop505S, routeTwo, new DateTime(2023, 3, 27, 10, 25, 0));
+            ScheduledStop scheduledStopSeven = new ScheduledStop(stop405S, routeTwo, new DateTime(2023, 3, 27, 10, 30, 0));
+            ScheduledStop scheduledStopEight = new ScheduledStop(stop305S, routeTwo, new DateTime(2023, 3, 27, 10, 35, 0));
+            ScheduledStop scheduledStopNine = new ScheduledStop(stop205S, routeTwo, new DateTime(2023, 3, 27, 10, 40, 0));
+            ScheduledStop scheduledStopTen = new ScheduledStop(stop105S, routeTwo, new DateTime(2023, 3, 27, 10, 45, 0));
 
             if (!context.ScheduledStop.Any())
             {
